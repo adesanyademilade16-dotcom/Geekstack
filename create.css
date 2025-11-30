@@ -1,0 +1,128 @@
+/* Geegstack University Style */
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #fefefe;
+  color: #222;
+}
+
+header, footer {
+  background-color: #4ad;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+header img {
+  height: 50px;
+  vertical-align: middle;
+}
+
+h1, h2 {
+  color: #4ad;
+}
+
+form {
+  max-width: 400px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #ccc;
+}
+
+input, select, textarea, button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+button {
+  background: #4ad;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #38a;
+}
+
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  font-size: 14px;
+}
+.menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px 15px;
+  background: #4ad;
+  color: white;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1001;
+  border-radius: 6px;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 220px;
+  height: 100%;
+  background-color: #4ad;
+  color: white;
+  padding-top: 60px;
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar a {
+  display: block;
+  padding: 12px 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sidebar a:hover {
+  background-color: #399;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  z-index: 999;
+}
+::placeholder {
+  color: #111; /* Dark placeholder text for visibility */
+  opacity: 0.8;
+}
+input {
+  color: #111;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 15px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+header img {
+  height: 80px;
+  margin-top: 10px;
+}
