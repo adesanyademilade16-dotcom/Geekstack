@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Results | Geegstack University</title>
+  <link rel="stylesheet" href="create.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://images.unsplash.com/photo-1581093588401-33cfba9235a6') no-repeat center center fixed;
+      background-size: cover;
+      color: black;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+      z-index: -1;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .menu-btn {
+      width: 35px;
+      height: 35px;
+      background: #4ad;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    .glass {
+      max-width: 600px;
+      margin: 60px auto;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    .info {
+      margin-top: 20px;
+    }
+
+    .info p {
+      font-weight: bold;
+      margin: 10px 0;
+      color: #222;
+    }
+
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 200px;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      padding: 20px;
+      transition: left 0.3s ease;
+      z-index: 1000;
+    }
+
+    .side-menu.show {
+      left: 0;
+    }
+
+    .side-menu a {
+      display: block;
+      margin: 15px 0;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+<!-- Sidebar Toggle Button -->
+<div class="menu-icon" onclick="toggleSidebar()">☰</div>
+
+<!-- Sidebar Menu -->
+<div class="sidebar" id="sidebar">
+  <a href="profile.html">👤 Profile</a>
+  <a href="fees.html">💳 Fees</a>
+  
+  <a href="login.html">🚪 Logout</a>
+</div>
+<!-- Overlay -->
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+  <header>
+    <button class="menu-btn" onclick="toggleMenu()"></button>
+    <div class="logo">
+      <img src="logo.png" alt="Logo">
+      <h3>Geegstack University</h3>
+    </div>
+  </header>
+
+  <!-- Side Menu -->
+  <div class="side-menu" id="sideMenu">
+    <a href="profile.html">Profile</a>
+    <a href="login.html">Logout</a>
+  </div>
+
+  <div class="glass">
+    <h2>Student Results</h2>
+    <div class="info">
+      <p><strong>Name:</strong> <span id="studentName">Loading...</span></p>
+      <p><strong>Department:</strong> Computer Science</p>
+      <p><strong>Mathematics:</strong> 85</p>
+      <p><strong>Programming:</strong> 92</p>
+      <p><strong>Networking:</strong> 88</p>
+      <p><strong>GPA:</strong> 4.6</p>
+    </div>
+  </div>
+
+  <footer>&copy; Geegstack University <span id="year"></span></footer>
+
+  <script>
+
+    function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    if (sidebar.style.left === '0px') {
+    sidebar.style.left = '-250px';
+    overlay.style.display = 'none';
+    } else {
+    sidebar.style.left = '0px';
+    overlay.style.display = 'block';
+    }
+    }
+  
+
+    // Load student name from localStorage
+    const name = localStorage.getItem("name") || "Student";
+    document.getElementById("studentName").textContent = name;
+
+    // Set current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
