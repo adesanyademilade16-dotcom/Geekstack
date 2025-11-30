@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Profile | Geegstack University</title>
+  <link rel="stylesheet" href="create.css">
+  <style>
+    .profile-container {
+      max-width: 420px;
+      margin: 100px auto;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 30px 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      position: relative;
+    }
+
+    .avatar {
+      font-size: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      width: 100px;
+      height: 100px;
+      margin: -80px auto 10px;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      border: 3px solid #4ad;
+    }
+
+    .profile-data {
+      text-align: left;
+      margin-top: 20px;
+    }
+
+    .profile-data p {
+      margin: 8px 0;
+      font-size: 16px;
+    }
+
+    .logout-btn {
+      margin-top: 20px;
+      background: #f33;
+    }
+
+    .logout-btn:hover {
+      background: #c00;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Sidebar Toggle Button -->
+<div class="menu-icon" onclick="toggleSidebar()">☰</div>
+
+<!-- Sidebar Menu -->
+<div class="sidebar" id="sidebar">
+  <a href="fees.html">💳 Fees</a>
+  <a href="result.html">📊 Results</a>
+  <a href="login.html">🚪 Logout</a>
+</div>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<header>
+  📘 Geegstack University
+</header>
+
+<div class="profile-container">
+  <div class="avatar" id="avatar">🧑‍🎓</div>
+  <h2 id="profileName">Student Name</h2>
+
+  <div class="profile-data">
+    <p><strong>Matric No:</strong> <span id="matric"></span></p>
+    <p><strong>Email:</strong> <span id="email"></span></p>
+    <p><strong>DOB:</strong> <span id="dob"></span></p>
+    <p><strong>Gender:</strong> <span id="gender"></span></p>
+    <p><strong>Bio:</strong> <span id="bio"></span></p>
+  </div>
+
+  <button class="logout-btn" onclick="logout()">Logout</button>
+</div>
+
+<footer>&copy; Geegstack University <span id="year"></span></footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // 🔐 Check if logged in
+  const loggedIn = localStorage.getItem("isLoggedIn");
+  const userEmail = localStorage.getItem("loggedInEmail");
+  const userData = localStorage.getItem(userEmail);
+  const user = userData ? JSON.parse(userData) : null;
+
+  if (!loggedIn || !user) {
+    alert("You must log in first.");
+    window.location.href = "login.html";
+  } else {
+    document.getElementById("profileName").textContent = user.name;
+    document.getElementById("matric").textContent = user.matric;
+    document.getElementById("email").textContent = user.email;
+    document.getElementById("dob").textContent = user.dob;
+    document.getElementById("gender").textContent = user.gender;
+    document.getElementById("bio").textContent = user.bio;
+  }
+
+  // 📂 Sidebar Toggle
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    if (sidebar.style.left === '0px') {
+      sidebar.style.left = '-250px';
+      overlay.style.display = 'none';
+    } else {
+      sidebar.style.left = '0px';
+      overlay.style.display = 'block';
+    }
+  }
+
+  // 🚪 Logout Function
+  function logout() {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("loggedInEmail");
+    window.location.href = "login.html";
+  }
+</script>
+
+</body>
+</html>
+
