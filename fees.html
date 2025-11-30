@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fees Payment - Geegstack University</title>
+  <link rel="stylesheet" href="create.css">
+  <style>
+    .payment-form {
+      width: 90%;
+      max-width: 400px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #ccc;
+    }
+
+    .payment-history {
+      width: 90%;
+      margin: 20px auto;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px #ccc;
+    }
+
+    .payment-history table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .payment-history th,
+    .payment-history td {
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .payment-history th {
+      background-color: #4ad;
+      color: white;
+    }
+
+    .header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .menu-icon {
+      font-size: 24px;
+      cursor: pointer;
+      padding: 8px 12px;
+      background: #4ad;
+      color: white;
+      border-radius: 6px;
+      margin-right: auto;
+    }
+
+    header img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    header h1 {
+      flex: 1;
+      text-align: center;
+      font-size: 24px;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Sidebar (hidden by default) -->
+<div class="sidebar" id="sidebar">
+  <a href="profile.html">👤 Profile</a>
+  <a href="results.html">📊 Results</a>
+  <a href="fees.html">💳 Fees</a>
+  <a href="login.html" onclick="logout()">🚪 Logout</a>
+</div>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<!-- Header with menu button -->
+<header>
+  <div class="header-flex">
+    <div class="menu-icon" onclick="toggleSidebar()">☰</div>
+    <img src="logo.png" alt="Geegstack Logo" />
+    <h1>Geegstack University</h1>
+  </div>
+</header>
+
+<h2 style="text-align:center;">Fees Payment</h2>
+
+<div class="payment-history">
+  <h3 style="text-align:center; margin-top:10px;">Payment History</h3>
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Purpose</th>
+      <th>Amount</th>
+    </tr>
+    <tr>
+      <td>2024-09-10</td>
+      <td>School Fees</td>
+      <td>₦45,000</td>
+    </tr>
+    <tr>
+      <td>2024-10-05</td>
+      <td>Hostel Fee</td>
+      <td>₦25,000</td>
+    </tr>
+    <tr>
+    <td>2024-10-05</td>
+    <td>technolhy Fee</td>
+    <td>₦29,000</td>
+    </tr>
+  </table>
+</div>
+
+<form class="payment-form">
+  <h3 style="text-align:center;">Make a New Payment</h3>
+  <label>Payment Reason:</label>
+  <select required>
+    <option value="">--Select Reason--</option>
+    <option>School Fees</option>
+    <option>Hostel Fee</option>
+    <option>Technology Fee</option>
+  </select>
+
+  <label>Amount (₦):</label>
+  <input type="number" placeholder="Enter amount" required>
+
+  <button type="submit">Pay Now</button>
+</form>
+
+<footer>
+  &copy; Geegstack University <script>document.write(new Date().getFullYear())</script>
+</footer>
+
+<script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("overlay");
+    if (sidebar.style.left === "0px") {
+      sidebar.style.left = "-250px";
+      overlay.style.display = "none";
+    } else {
+      sidebar.style.left = "0px";
+      overlay.style.display = "block";
+    }
+  }
+
+  function logout() {
+    localStorage.removeItem("loggedIn");
+    localStorage.removeItem("loggedInEmail");
+  }
+</script>
+
+</body>
+</html>
+
