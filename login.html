@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login | Geegstack University</title>
+  <link rel="stylesheet" href="create.css">
+  <style>
+    body {
+      background: linear-gradient(to right, #4ad, white);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+      color: #4ad;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 30px auto;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.15);
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: #4ad;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  .create{
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: #4ad;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    display:grid;
+    }
+
+    button:hover {
+      background-color: #37a;
+    }
+ a { color:black;
+   text-decoration:none;
+ }
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      padding: 10px;
+      background-color: #4ad;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Geegstack University</h1>
+
+  <form id="loginForm">
+    <input type="email" id="email" placeholder="Email" required><br>
+    <input type="password" id="password" placeholder="Password" required><br>
+    <button type="submit">Login</button>
+  </form>
+<a href="create.html" ><button class="create">create account</button></a>
+  <footer>&copy; Geegstack University <span id="year"></span></footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      const userDataRaw = localStorage.getItem(email);
+      if (!userDataRaw) {
+        alert("No account found with this email.");
+        return;
+      }
+
+      const userData = JSON.parse(userDataRaw);
+      if (password === userData.password) {
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("loggedInEmail", email); // keep track of which user
+        window.location.href = "profile.html";
+      } else {
+        alert("Incorrect password.");
+      }
+    });
+  </script>
+</body>
+</html>
