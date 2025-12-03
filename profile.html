@@ -59,7 +59,7 @@
 <div class="sidebar" id="sidebar">
   <a href="fees.html">💳 Fees</a>
   <a href="result.html">📊 Results</a>
-  <a href="login.html">🚪 Logout</a>
+  <a href="index.html">🚪 Logout</a>
 </div>
 
 <!-- Overlay -->
@@ -97,7 +97,7 @@
 
   if (!loggedIn || !user) {
     alert("You must log in first.");
-    window.location.href = "login.html";
+    window.location.href = "index.html";
   } else {
     document.getElementById("profileName").textContent = user.name;
     document.getElementById("matric").textContent = user.matric;
