@@ -1,128 +1,187 @@
-/* Geegstack University Style */
-
+/*
+ * --------------------------------
+ * 1. Base Reset & Typography
+ * --------------------------------
+ */
 body {
-  margin: 0;
-  font-family: "Segoe UI", sans-serif;
-  background: #fefefe;
-  color: #222;
-}
-
-header, footer {
-  background-color: #4ad;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-}
-
-header img {
-  height: 50px;
-  vertical-align: middle;
+    margin: 0;
+    font-family: 'Poppins', sans-serif; /* Using a more modern font (assumes inclusion via HTML/Google Fonts) */
+    background: #f0f4f8; /* Light blue-grey background */
+    color: #2c3e50; /* Dark, legible text color */
+    line-height: 1.6;
 }
 
 h1, h2 {
-  color: #4ad;
+    color: #007bff; /* Primary blue color */
+    font-weight: 700;
 }
 
+/* * --------------------------------
+ * 2. Layout & Structure
+ * --------------------------------
+ */
+header, footer {
+    background-color: #007bff; /* Primary blue color */
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+}
+
+header img {
+    height: 60px; /* Slight adjustment */
+    vertical-align: middle;
+    margin-top: 5px;
+}
+
+/* * --------------------------------
+ * 3. Form Styling & Input Elements
+ * --------------------------------
+ */
 form {
-  max-width: 400px;
-  margin: 20px auto;
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px #ccc;
+    max-width: 450px; /* Slightly wider form for better desktop UX */
+    margin: 40px auto; /* Increased vertical margin */
+    background: #ffffff;
+    padding: 30px; /* More internal padding */
+    border-radius: 16px; /* Smoother corners */
+    /* Deeper, more noticeable box shadow */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); 
 }
 
-input, select, textarea, button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
+/* General Input Styles */
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    margin-bottom: 20px; /* Increased bottom margin for better separation */
+    border: 2px solid #e0e6ec; /* Light, subtle border */
+    border-radius: 8px;
+    font-size: 16px;
+    color: #2c3e50;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box; /* Crucial for responsiveness */
 }
 
+input:focus, select:focus, textarea:focus {
+    border-color: #007bff; /* Highlight focus with primary color */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+    outline: none; /* Remove default outline */
+}
+
+::placeholder {
+    color: #95a5a6; /* Light gray, professional placeholder */
+    opacity: 1; 
+}
+
+/* * --------------------------------
+ * 4. Button Styling
+ * --------------------------------
+ */
 button {
-  background: #4ad;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s;
+    background: #007bff; /* Primary blue */
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.1s;
+    width: 100%;
+    margin-top: 15px;
 }
 
 button:hover {
-  background: #38a;
+    background: #0056b3; /* Darker blue on hover */
 }
 
-footer {
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  font-size: 14px;
+button:active {
+    transform: translateY(1px); /* Simple press effect */
 }
+
+/* * --------------------------------
+ * 5. Footer & Fixed Elements
+ * --------------------------------
+ */
+footer {
+    position: static; /* Removed fixed position to ensure it's at the bottom of content */
+    width: 100%;
+    padding: 15px 0;
+    font-size: 14px;
+    background-color: #34495e; /* Darker footer for contrast */
+    margin-top: 20px;
+}
+
+
+/* * --------------------------------
+ * 6. Sidebar/Menu Styles (Refined)
+ * --------------------------------
+ */
 .menu-icon {
-  font-size: 24px;
-  cursor: pointer;
-  padding: 10px 15px;
-  background: #4ad;
-  color: white;
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 1001;
-  border-radius: 6px;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 10px 15px;
+    background: #007bff;
+    color: white;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1001;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: -250px;
-  width: 220px;
-  height: 100%;
-  background-color: #4ad;
-  color: white;
-  padding-top: 60px;
-  transition: left 0.3s ease;
-  z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px; /* Slightly wider sidebar */
+    height: 100%;
+    background-color: #007bff;
+    padding-top: 80px;
+    transition: left 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Bouncy transition */
+    z-index: 1000;
 }
 
 .sidebar a {
-  display: block;
-  padding: 12px 20px;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
+    display: block;
+    padding: 15px 25px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .sidebar a:hover {
-  background-color: #399;
+    background-color: #0056b3;
 }
 
 .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: rgba(0,0,0,0.4);
-  display: none;
-  z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Darker overlay */
+    display: none;
+    z-index: 999;
 }
-::placeholder {
-  color: #111; /* Dark placeholder text for visibility */
-  opacity: 0.8;
-}
-input {
-  color: #111;
-  background-color: rgba(255, 255, 255, 0.6);
-  border: none;
-  border-radius: 8px;
-  padding: 10px;
-  width: 100%;
-  margin-bottom: 15px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-}
-header img {
-  height: 80px;
-  margin-top: 10px;
-}
+
+/* * --------------------------------
+ * 7. Mobile Responsiveness (New Addition)
+ * --------------------------------
+ */
+@media (max-width: 500px) {
+    
+    /* Make the form full-width on mobile */
+    form {
+        max-width: 100%;
+        margin: 20px 5%; /* Add side margins instead of auto */
+        padding: 20px;
+        border-radius: 0; /* Optional: Remove border radius for full screen effect */
+        box-shadow: none;
+    }
+
+    /* Reduce header padding */
+    header, footer {
+        padding: 15px 10px;
+    }
